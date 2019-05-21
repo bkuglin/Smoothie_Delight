@@ -1,0 +1,10 @@
+.section{
+  max-width: 100%;
+  overflow-x: hidden;
+  .section__img{
+    width: calc(50vw - 20px);
+  }
+  .section__text{
+    text-align: justify;
+  }
+}

@@ -1,0 +1,33 @@
+//BREAKPOINTS
+$breakpoints: (
+  xxs: 400px,
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1500px,
+  xxl: 1800px,
+);
+
+
+// The font size set on the root html element.
+$base-font-size: 16px;
+
+// The base line height determines the basic unit of vertical rhythm.
+$base-line-height: 24px;
+
+// The default font family.
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&display=swap&subset=latin-ext');
+$base-font-family: 'Open Sans', sans-serif;
+
+// The font sizes for h1-h6.
+$h1-font-size: 3.75    * $base-font-size;
+$h2-font-size: 2.25  * $base-font-size;
+$h3-font-size: 1.875 * $base-font-size;
+$h4-font-size: 1.5    * $base-font-size;
+$h5-font-size: 1.25 * $base-font-size;
+$h6-font-size: 1 * $base-font-size;
+
+
+$green: #6ab04e;
+$text-color: #497d8b;

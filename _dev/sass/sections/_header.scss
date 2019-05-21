@@ -1,0 +1,10 @@
+.header{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background: url('../images/page-banner.jpg') center /cover no-repeat;
+  .header__title{
+    color: $green;
+  }
+}

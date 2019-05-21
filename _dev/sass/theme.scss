@@ -1,0 +1,10 @@
+@import "../node_modules/normalize-scss/sass/_normalize";
+@import "./utilities/variables";
+@include normalize();
+
+@import "./utilities/mixins";
+@import "./utilities/layout";
+
+//sections
+@import "sections/header.scss";
+ @import "sections/sections.scss";
