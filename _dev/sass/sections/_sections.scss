@@ -1,10 +1,6 @@
 .section{
-  margin: 30px 0;
   max-width: 100%;
   overflow-x: hidden;
-  @include media(md){
-    margin: 50px 0;
-  }
   .section__img{
     display: block;
     max-width: 100%;
@@ -17,6 +13,10 @@
     text-align: justify;
     text-align-last: left;
     color: $text-color;
+  }
+  .section__sub-title{
+    font-size: 1.5em;
+    font-weight: 500;
   }
 }
 .section--reverse{

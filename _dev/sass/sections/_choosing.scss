@@ -1,0 +1,52 @@
+.choosing{
+
+  .choosing__button{
+    background-color: transparent;
+    padding: 0;
+    outline: none;
+    border: none;
+    appearance:none;
+    cursor: pointer;
+  }
+  .choosing__button-title{
+    @extend h3;
+    position: relative;
+    display: block;
+    color: $text-color;
+    padding: .75em .5em;
+    transition: $transition-base;
+  }
+  .choosing__button-title:before{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    background-color: $text-color;
+    transition: $transition-base;
+    z-index: -1;
+  }
+  .choosing__img-box{
+    background-color: $text-color;
+  }
+  .choosing__img{
+    opacity: 0.5;
+    transition: $transition-base;
+  }
+
+  //action
+  .choosing__button:hover, .choosing__button:focus{
+    .choosing__button-title{
+      color: $white;
+    }
+    .choosing__button-title:before{
+      height: 100%;
+    }
+    .choosing__img{
+      opacity: 1;
+    }
+  }
+
+
+}

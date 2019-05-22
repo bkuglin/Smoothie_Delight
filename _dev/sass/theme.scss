@@ -6,7 +6,11 @@
 @import "./utilities/layout";
 @import './utilities/universal';
 
+//partials
+@import "./partials/forms";
+
 
 //sections
-@import "sections/header.scss";
-@import "sections/sections.scss";
+@import "./sections/header.scss";
+@import "./sections/sections.scss";
+@import "./sections/choosing.scss";

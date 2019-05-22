@@ -72,7 +72,22 @@ function styles() {
 function scripts() {
     return gulp.src(paths.scripts.src)
         .pipe(sourcemaps.init())
-        .pipe(babel())
+        .pipe(babel({
+            presets: ["@babel/preset-env"]
+        }).on('error', function(err) {
+          // For gulp-util users u can use a more colorfull variation
+          // util.log(util.colors.red('[Compilation Error]'));
+          // util.log(err.fileName + ( err.loc ? `( ${err.loc.line}, ${err.loc.column} ): ` : ': '));
+          // util.log(util.colors.red('error Babel: ' + err.message + '\n'));
+          // util.log(err.codeFrame);
+
+          console.log('[Compilation Error]');
+          console.log(err.fileName + ( err.loc ? `( ${err.loc.line}, ${err.loc.column} ): ` : ': '));
+          console.log('error Babel: ' + err.message + '\n');
+          console.log(err.codeFrame);
+
+          this.emit('end');
+        }))
         .pipe(uglify())
         .pipe(concat(paths.scripts.filename))
         .pipe(sourcemaps.write('.'))
