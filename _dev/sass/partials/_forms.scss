@@ -1,0 +1,66 @@
+
+.form-popup{
+
+}
+.form{
+  .form__row{
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+  }
+  .form__row--col{
+    flex-direction: column;
+  }
+  .form__label{
+    display: block;
+  }
+  .form__control{
+    display: block;
+    border: 1px solid rgba($green, .75);
+    background-color: $white;
+    color: $text-color;
+    font-weight: 300;
+    font-size: 1.25    * $base-font-size;
+    border-radius: 15px;
+    padding: .5em 1em;
+    transition: $transition-base;
+  }
+  .form__control:focus, .form__control:hover{
+    outline: none;
+    border: 1px solid rgba($green, 1);
+    box-shadow: 1px 1px 4px 0px rgba($text-color, 0.75);
+  }
+  .form__control::placeholder{
+    color: rgba($text-color, .25);
+  }
+
+  button[type="submit"]{
+    background-color: $green;
+    color: $white;
+    font-size: 1.25 * $base-font-size;
+    padding: .5em 1em;
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 1px solid $green;
+    outline: none;
+    transition: $transition-base;
+    cursor: pointer;
+    &:hover, &:focus{
+      outline: none;
+      background-color: $white;
+      color: $green;
+    }
+  }
+  span.error{
+    display: block;
+    font-size: .875em;
+    margin-bottom: 5px;
+    color: $error-color;
+    text-align: left;
+  }
+  .form__control.error{
+    background-color: rgba($error-color, .1);
+    border-color: $error-color;
+  }
+}
