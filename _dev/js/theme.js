@@ -10,35 +10,49 @@ document.addEventListener('DOMContentLoaded', function(){
     }, false);
   });
 
-  document.getElementById('dismissModal').addEventListener('click', function() {
-    this.parentNode.parentNode.classList.remove('active');
-  })
+  document.getElementById('dismissModal').addEventListener('click', dismissModal)
 
   document.getElementById('formModal').addEventListener('submit', function(e){
     e.preventDefault();
-    validateForm(this);
+    let isValid = validateForm(this);
+    if (isValid) {
+      console.log(isValid);
+      let thankYouMessage = document.getElementById('thankYou');
+      thankYouMessage.style.display = 'block';
+      thankYouMessage.nextElementSibling.style.display = 'none';
+      thankYouMessage.previousElementSibling.style.display = 'none';
+      setTimeout(dismissModal, 3000);
+    }
   });
 
 
 }, false);
 
+function dismissModal(){
+  document.getElementById('formModal').classList.remove('active');
+}
 
 function validateForm(el){
   let inputs = el.getElementsByTagName('input');
   let isValid = true;
   [...inputs].forEach( input => {
-    if(input.value == '') isValid = false;
-    if (input.type == 'email') {
-      isValid = emailIsValid(input.value);
-      input.classList.add('error');
-      input.previousElementSibling.innerHTML = "Check your email again";
-      input.addEventListener('keydown', resetErrorOnChange);
+    if(input.value === ''){
+      isValid = false;
     }
-  })
+    if (input.type === 'email') {
+      isValid = emailIsValid(input.value);
+      if (!isValid) {
+        input.classList.add('error');
+        input.previousElementSibling.innerHTML = "Check your email again";
+        input.addEventListener('keydown', resetErrorOnChange);
+      }
+    }
+  });
+  return isValid;
 }
 
 function emailIsValid (email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 

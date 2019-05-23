@@ -13,8 +13,11 @@
     position: relative;
     display: block;
     color: $text-color;
-    padding: .75em .5em;
+    padding: .5em .25em;
     transition: $transition-base;
+    @include media(md){
+      padding: .75em .5em;
+    }
   }
   .choosing__button-title:before{
     content: "";
