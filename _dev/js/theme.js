@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', function(){
 
   let openModalButtons = document.getElementsByClassName('openModal');
-  console.log(openModalButtons);
   [...openModalButtons].forEach( button => {
     button.addEventListener('click', function(){
       document.getElementById(this.dataset.target).classList.add('active');
       document.getElementsByName('smoothieType')[0].value = this.id
-      console.log(this.id);
     }, false);
   });
 
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function(){
     e.preventDefault();
     let isValid = validateForm(this);
     if (isValid) {
-      console.log(isValid);
       let thankYouMessage = document.getElementById('thankYou');
       thankYouMessage.style.display = 'block';
       thankYouMessage.nextElementSibling.style.display = 'none';
