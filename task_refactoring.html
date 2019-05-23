@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Task Refactoring</title>
+  </head>
+  <style media="screen">
+    .page-title{
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .paragraph{
+      margin-bottom: 10px;
+      color: black;
+      font-style: italic;
+    }
+    .btn{
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+    }
+    .list{
+      padding-left: 20px;
+    }
+    .list__item{
+      text-indent: 10px;
+    }
+    .text-blue{
+       color: blue;
+    }
+    strong{
+      font-weight: bold;
+    }
+    .text-bolder{
+      font-weight: bolder;
+    }
+    .note{
+      margin: 0;
+      padding: 10px;
+      color: aqua;
+      background: blue;
+    }
+  </style>
+  <body>
+    <h1 class="page-title" id="largeBlackText">Fix this ugly code!</h1>
+
+    <p class="paragraph" id="blackItalicParagraphText1">
+      This page is full of lots of violations of the DRY principle (Don't Repeat Yourself) along with a number of other violations of HTML markup best practices.
+    </p>
+
+    <p class="paragraph" id="blackItalicParagraphText2">
+      Your goal is to refactor the HTML, CSS and JavaScript on this page so that you have:
+    </p>
+    <pre>
+      1. a clear separation of concerns between HTML, CSS and JavaScript
+    </pre>
+
+    <button class="btn" id="blueHiderLinkThing" data-target="list1">
+      Click Here to See Suggested Refactoring Path!
+    </button>
+
+    <ol class="list" id="list1" style="visibility: hidden;">
+      <li class="list__item" id="listItem1">Refactor <strong class="text-blue" id="highlightedBlackText1">inline styles</strong> (into the head tag or an external stylesheet).</li>
+      <li class="list__item" id="listItem2">Refactor <strong class="text-blue" id="highlightedBlackText2">duplication</strong> that exists in the inline style tags.</li>
+      <li class="list__item" id="listItem3">Refactor <strong class="text-blue" id="highlightedBlackText3">markup</strong> to use appropriate html elements.</li>
+      <li class="list__item" id="listItem3">Refactor <strong class="text-blue text-bolder" id="highlightedBlackText4">styles</strong> to eliminate the property duplication.</li>
+      <li class="list__item" id="listItem5">Refactor <strong class="text-blue text-bolder" id="highlightedBlackText5">javascript</strong> to eliminate inline click handler.</li>
+    </ol>
+
+    <p class="note" id="note">
+      While there a number of tools available that can assist in making this refactoring easier I want to challenge you to do this refactor with nothing but your brain and a text editor.
+    </p>
+  </body>
+
+  <script type="text/javascript">
+    document.getElementById('blueHiderLinkThing').addEventListener('click', function() {
+      var target = document.getElementById(this.dataset.target)
+      target.style.visibility = ((target.style.visibility!='hidden') ? 'hidden' : 'visible');
+    })
+  </script>
+</html>
