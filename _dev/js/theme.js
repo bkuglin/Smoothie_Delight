@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
 
   let openModalButtons = document.getElementsByClassName('openModal');
+  console.log(openModalButtons);
   [...openModalButtons].forEach( button => {
     button.addEventListener('click', function(){
       document.getElementById(this.dataset.target).classList.add('active');
@@ -31,10 +32,17 @@ function validateForm(el){
       isValid = emailIsValid(input.value);
       input.classList.add('error');
       input.previousElementSibling.innerHTML = "Check your email again";
+      input.addEventListener('keydown', resetErrorOnChange);
     }
   })
 }
 
 function emailIsValid (email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+
+
+function resetErrorOnChange(){
+  this.classList.remove('error');
+  this.previousElementSibling.innerHTML = "";
 }
