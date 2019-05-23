@@ -5,16 +5,19 @@
 // // The font sizes for h1-h6.
 h1{
   margin-top: 0;
-  font-size: 2.5    * $base-font-size;
+  font-size: 3    * $base-font-size;
   line-height: 1.25em;
-  @include media(sm){
-    font-size: 2.75    * $base-font-size;
+  @include media(xs){
+    font-size: 3.5    * $base-font-size;
   }
   @include media(md){
-    font-size: 3.2    * $base-font-size;
+    font-size: 4    * $base-font-size;
   }
-  @include media(xl){
-    font-size: 3.75    * $base-font-size;
+  @include media(lg){
+    font-size: 5    * $base-font-size;
+  }
+  @include media(xxl){
+    font-size: 6    * $base-font-size;
   }
 }
 h2{

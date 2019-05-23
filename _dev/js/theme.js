@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
 
   let openModalButtons = document.getElementsByClassName('openModal');
+  console.log(openModalButtons);
   [...openModalButtons].forEach( button => {
     button.addEventListener('click', function(){
       document.getElementById(this.dataset.target).classList.add('active');
@@ -9,43 +10,53 @@ document.addEventListener('DOMContentLoaded', function(){
     }, false);
   });
 
-  document.getElementById('dismissModal').addEventListener('click', function() {
-    this.parentNode.parentNode.classList.remove('active');
-  })
+  document.getElementById('dismissModal').addEventListener('click', dismissModal)
 
   document.getElementById('formModal').addEventListener('submit', function(e){
     e.preventDefault();
-    validateForm(this);
+    let isValid = validateForm(this);
+    if (isValid) {
+      console.log(isValid);
+      let thankYouMessage = document.getElementById('thankYou');
+      thankYouMessage.style.display = 'block';
+      thankYouMessage.nextElementSibling.style.display = 'none';
+      thankYouMessage.previousElementSibling.style.display = 'none';
+      setTimeout(dismissModal, 3000);
+    }
   });
 
-  [...document.querySelectorAll('input')].forEach( el => {
-    el.addEventListener('change', function(){
-      if (this.classList.contains('error')) {
-        this.classList.remove('error');
-        this.previousElementSibling.innerHTML = "";
-      }
-    })
-  })
 
 }, false);
 
+function dismissModal(){
+  document.getElementById('formModal').classList.remove('active');
+}
 
 function validateForm(el){
   let inputs = el.getElementsByTagName('input');
   let isValid = true;
   [...inputs].forEach( input => {
-    if (input.type == 'email') {
-      console.log(input);
+    if(input.value === ''){
+      isValid = false;
+    }
+    if (input.type === 'email') {
       isValid = emailIsValid(input.value);
       if (!isValid) {
         input.classList.add('error');
         input.previousElementSibling.innerHTML = "Check your email again";
+        input.addEventListener('keydown', resetErrorOnChange);
       }
-      console.log(isValid);
     }
   });
+  return isValid;
 }
 
 function emailIsValid (email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+
+function resetErrorOnChange(){
+  this.classList.remove('error');
+  this.previousElementSibling.innerHTML = "";
 }

@@ -2,3 +2,4 @@
 /js
 /stylesheets
 /_dev/node_modules
+/_dev/package-lock.json

@@ -1,10 +1,17 @@
 .header{
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
   min-height: 100vh;
   background: url('../images/page-banner.jpg') center /cover no-repeat;
+  @include media(xs){
+    text-align: left;
+    justify-content: flex-start;
+    align-items: center
+  }
   .header__title{
     color: $green;
+    margin-top: .67em;
   }
 }
